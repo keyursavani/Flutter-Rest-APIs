@@ -1,0 +1,44 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_rest_api/provider/get_method_provider.dart';
+
+class GetMethodScreen extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return GetMethodScreenState();
+  }
+}
+
+class GetMethodScreenState extends State<GetMethodScreen>{
+  late Future<GetMethodProvider> futureAlbum;
+
+  @override
+  void initState() {
+    super.initState();
+    futureAlbum = fetchAlbum();
+  }
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Get Method"),
+      ),
+      body: Center(
+        child:
+        FutureBuilder<GetMethodProvider>(
+        future: futureAlbum,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Text(snapshot.data!.title.toString());
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const CircularProgressIndicator();
+        },
+      ),
+      ),
+    );
+  }
+}
