@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/provider/get_method_provider.dart';
 
+import '../services/get_method_services.dart';
+
 class GetMethodScreen extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {

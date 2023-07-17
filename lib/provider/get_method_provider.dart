@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
-import 'package:http/http.dart' as http;
 
 class GetMethodProvider extends ChangeNotifier{
   GetMethodProvider({
@@ -34,14 +31,4 @@ class GetMethodProvider extends ChangeNotifier{
      map['title'] = _title;
      return map;
    }
-}
-
-Future<GetMethodProvider> fetchAlbum() async {
-  final response = await http
-      .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
-  if (response.statusCode == 200) {
-    return GetMethodProvider.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to load album');
-  }
 }
