@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/constant/my_button.dart';
 import 'package:flutter_rest_api/screen/get_method_screen.dart';
+import 'package:flutter_rest_api/screen/get_method_screen2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,8 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(width: 15,),
                   Expanded(
                     child: MyNextButton(
-                        onPressed: (){},
-                        name: "Post Method"
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return GetMethod2Screen();
+                              })
+                          );
+                        },
+                        name: "Get Method List"
                     ),
                   ),
                 ],
