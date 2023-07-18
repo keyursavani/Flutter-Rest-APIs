@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_provider.dart';
-import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_2_screen.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_check_screen.dart';
 import 'package:provider/provider.dart';
 
 class GetMethodScreenProvider extends StatefulWidget{
@@ -58,7 +58,7 @@ class GetMethodScreenProviderState extends State<GetMethodScreenProvider>{
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context){
-                    return GetMethod2ScreenProvider();
+                    return GetMethodCheckScreenProvider();
                   })
                 );
               },

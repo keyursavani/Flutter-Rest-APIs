@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../model/get_method_model.dart';
 
-class Services{
+class GetMethodServices{
   Future<DataModel> getData(context) async {
     late DataModel data;
     try {

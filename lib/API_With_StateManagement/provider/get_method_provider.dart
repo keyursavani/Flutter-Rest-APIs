@@ -9,7 +9,7 @@ class GetMethodProvider with ChangeNotifier {
   late DataModel data;
 
   bool loading = false;
-  Services services = Services();
+  GetMethodServices services = GetMethodServices();
 
   getPostData(context) async {
     loading = true;
