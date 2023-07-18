@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class GetMethodProvider extends ChangeNotifier{
-  GetMethodProvider({
+class AlbumGet extends ChangeNotifier{
+  AlbumGet({
     int? userId,
     int? id,
     String? title,
@@ -11,7 +11,7 @@ class GetMethodProvider extends ChangeNotifier{
     _id = id;
     _title = title;
   }
-  GetMethodProvider.fromJson(dynamic json){
+  AlbumGet.fromJson(dynamic json){
     _userId = json['userId'];
     _id = json['id'];
     _title = json['title'];

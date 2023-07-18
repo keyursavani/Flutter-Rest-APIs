@@ -12,6 +12,12 @@ class GetMethod2Screen extends StatefulWidget{
   }
 }
  class GetMethod2ScreenState extends State<GetMethod2Screen>{
+  Future<List<Photo>>? photos;
+  @override
+  void initState() {
+    super.initState();
+    photos = fetchPhotos(http.Client());
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -20,7 +26,7 @@ class GetMethod2Screen extends StatefulWidget{
         title: Text("Get Method List"),
       ),
       body: FutureBuilder<List<Photo>>(
-        future: fetchPhotos(http.Client()),
+        future: photos,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
@@ -39,20 +45,45 @@ class GetMethod2Screen extends StatefulWidget{
   }
 }
 
-class PhotosList extends StatelessWidget{
-  final List<Photo> photos;
-  String? name;
-  PhotosList({Key? key, required this.photos , this.name}):super( key: key);
+// class PhotosList extends StatelessWidget{
+//   final List<Photo> photos;
+//   String? name;
+//   PhotosList({Key? key, required this.photos , this.name}):super( key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     // TODO: implement build
+//    return GridView.builder(
+//      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//        crossAxisCount: 2,
+//      ),
+//      itemCount: photos.length,
+//      itemBuilder: (context, index) {
+//        return Image.network(photos[index].thumbnailUrl);
+//      },
+//    );
+//   }
+// }
+
+class PhotosList extends StatefulWidget{
+  List<Photo> photos;
+  PhotosList({Key? key , required this.photos}):super(key: key);
+  @override
+  State<StatefulWidget> createState() {
+    return PhotosListState();
+  }
+}
+
+class PhotosListState extends State<PhotosList>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-   return GridView.builder(
+    return  GridView.builder(
      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
        crossAxisCount: 2,
      ),
-     itemCount: photos.length,
+     itemCount: widget.photos.length,
      itemBuilder: (context, index) {
-       return Image.network(photos[index].thumbnailUrl);
+       return Image.network(widget.photos[index].thumbnailUrl);
      },
    );
   }

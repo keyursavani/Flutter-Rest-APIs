@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rest_api/provider/get_method_provider.dart';
-
+import '../provider/get_method_provider.dart';
 import '../services/get_method_services.dart';
 
 class GetMethodScreen extends StatefulWidget{
@@ -13,7 +12,7 @@ class GetMethodScreen extends StatefulWidget{
 }
 
 class GetMethodScreenState extends State<GetMethodScreen>{
-  late Future<GetMethodProvider> futureAlbum;
+  late Future<AlbumGet> futureAlbum;
 
   @override
   void initState() {
@@ -29,7 +28,7 @@ class GetMethodScreenState extends State<GetMethodScreen>{
       ),
       body: Center(
         child:
-        FutureBuilder<GetMethodProvider>(
+        FutureBuilder<AlbumGet>(
         future: futureAlbum,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
