@@ -16,32 +16,43 @@ class GetMethod2StateScreenState extends State<GetMethod2StateScreen>{
   @override
   void initState() {
     super.initState();
-    Provider.of<GetMethod2Provider>(context, listen: false).getPhotosData2;
+    Provider.of<GetMethod2Provider>(context, listen: false).getAllDatas();
   }
   @override
   Widget build(BuildContext context) {
-    final postMdl = Provider.of<GetMethod2Provider>(context);
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("Get Method 2 List"),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(20),
-        child: postMdl.loading ? Center(
-          child: Container(
-            child: const CircularProgressIndicator(),
-          ),
-        )
-            : GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          ),
-          itemCount: postMdl.data.length,
-          itemBuilder: (context, index) {
-            return Image.network(postMdl.data.first.thumbnailUrl);
-          },
-        ),
+      body: Consumer<GetMethod2Provider>(
+        builder: (context, value, child) {
+          // If the loading it true then it will show the circular progressbar
+          if (value.loading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          // If loading is false then this code will show the list of todo item
+          final todos = value.data;
+          return ListView.builder(
+            itemCount: todos.length,
+            itemBuilder: (context, index) {
+              final todo = todos[index];
+              return ListTile(
+                leading: CircleAvatar(
+                  child: Text(todo.id.toString()),
+                ),
+                title: Text(
+                  todo.title,
+                  style: TextStyle(
+                    color: todo.completed ? Colors.grey : Colors.black,
+                  ),
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_2_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_provider.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_2_check_screen.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_2_screen.dart';
 
 import 'API_With_StateManagement/screen/get_method_check_screen.dart';
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => GetMethodProvider()),
+        ChangeNotifierProvider(create: (_) => GetMethod2Provider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -230,12 +233,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: MyNextButton(
                       onPressed: (){
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(builder: (context){
-                        //       return GetMethodCheckScreenProvider();
-                        //     })
-                        // );
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context){
+                              return GetMethod2CheckScreen();
+                            })
+                        );
                       },
                       name: "Check"
                   ),

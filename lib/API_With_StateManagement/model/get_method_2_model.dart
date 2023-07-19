@@ -50,27 +50,34 @@
 // }
 
 class GetMethod2 {
-  final int albumId;
   final int id;
+  final int userId;
   final String title;
-  final String url;
-  final String thumbnailUrl;
+  final bool completed;
 
   const GetMethod2({
-    required this.albumId,
     required this.id,
+    required this.userId,
     required this.title,
-    required this.url,
-    required this.thumbnailUrl,
+    required this.completed,
+
   });
 
   factory GetMethod2.fromJson(Map<String, dynamic> json) {
     return GetMethod2(
-      albumId: json['albumId'] as int,
       id: json['id'] as int,
+      userId: json['userId'] as int,
       title: json['title'] as String,
-      url: json['url'] as String,
-      thumbnailUrl: json['thumbnailUrl'] as String,
+      completed: json['completed'] as bool,
     );
   }
+  Map<String , dynamic> toJson(){
+    final map = <String , dynamic>{};
+    map['id'] = id;
+    map['userId'] = userId;
+    map['title'] = title;
+    map['completed'] = title;
+    return map;
+  }
+
 }

@@ -4,15 +4,20 @@ import 'package:flutter_rest_api/API_With_StateManagement/services/get_method_2_
 import 'package:http/http.dart' as http;
 
 class GetMethod2Provider with ChangeNotifier{
-  late List<GetMethod2> data;
 
   bool loading = false;
   GetMethod2Services services = GetMethod2Services();
+  List<GetMethod2> _data = [];
+  List<GetMethod2> get data => _data;
 
-getPhotosData2(context) async{
-  loading = true;
-  data = await services.fetchPhotos(http.Client());
-  loading = false;
-  notifyListeners();
-}
+  Future<void> getAllDatas() async {
+    loading = true;
+    notifyListeners();
+
+    final response = await GetMethod2Services.fetchUser();
+
+    _data = response;
+    loading = false;
+    notifyListeners();
+  }
 }
