@@ -6,14 +6,16 @@ import '../services/get_method_services.dart';
 
 
 class GetMethodProvider with ChangeNotifier {
-  late DataModel data;
 
   bool loading = false;
   GetMethodServices services = GetMethodServices();
+  late DataModel _data;
+  DataModel get data => _data;
 
   getPostData(context) async {
     loading = true;
-    data = await services.getData(context);
+    final response = await services.getData(context);
+    _data = response;
     loading = false;
     notifyListeners();
   }
