@@ -18,7 +18,8 @@ class PostMethodService{
     );
     final body =response.body;
     final json = jsonDecode(body);
-    final reasult = json;
-    return PostMethodModel.fromJson(reasult);
+    final result = json;
+    data =   PostMethodModel.fromJson(result);
+    return data;
   }
 }
