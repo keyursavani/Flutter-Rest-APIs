@@ -56,235 +56,304 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Rest API Tutorial"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:[
-            Center(
-              child: Align(
-                child: Text("Simple APIs Calls" ,style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:[
+              Center(
+                child: Align(
+                  child: Text("Simple APIs Calls" ,style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),),
+                ),
               ),
-            ),
-            SizedBox(height: 40,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return GetMethodScreen();
-                            })
-                        );
-                      },
-                      name: "Get Method"
+              SizedBox(height: 40,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return GetMethodScreen();
+                              })
+                          );
+                        },
+                        name: "Get Method"
+                    ),
                   ),
-                ),
-                SizedBox(width: 15,),
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return GetMethod2Screen();
-                            })
-                        );
-                      },
-                      name: "Get Method List"
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return GetMethod2Screen();
+                              })
+                          );
+                        },
+                        name: "Get Method List"
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return PostMethodScreen();
-                            })
-                        );
-                      },
-                      name: "Post Method"
-                  ),
-                ),
-                SizedBox(width: 15,),
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return PutMethodScreen();
-                            })
-                        );
-                      },
-                      name: "Put Method"
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return WebSocketScreen();
-                            })
-                        );
-                      },
-                      name: "Web Socket"
-                  ),
-                ),
-                SizedBox(width: 15,),
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return DeleteMethodScreen();
-                            })
-                        );
-                      },
-                      name: "Delete Method"
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 40,),
-            Center(
-              child: Align(
-                child: Text("APIs Call With StateManagement" ,style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),),
+                ],
               ),
-            ),
-            SizedBox(height: 40,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return GetMethodScreenProvider();
-                            })
-                        );
-                      },
-                      name: "Post Method"
+              SizedBox(height: 30,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return PostMethodScreen();
+                              })
+                          );
+                        },
+                        name: "Post Method"
+                    ),
                   ),
-                ),
-                SizedBox(width: 15,),
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return GetMethodCheckScreenProvider();
-                            })
-                        );
-                      },
-                      name: "Check"
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return PutMethodScreen();
+                              })
+                          );
+                        },
+                        name: "Put Method"
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 40,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return GetMethod2StateScreen();
-                            })
-                        );
-                      },
-                      name: "Get Method 2"
+                ],
+              ),
+              SizedBox(height: 30,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return WebSocketScreen();
+                              })
+                          );
+                        },
+                        name: "Web Socket"
+                    ),
                   ),
-                ),
-                SizedBox(width: 15,),
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return GetMethod2CheckScreen();
-                            })
-                        );
-                      },
-                      name: "Check"
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return DeleteMethodScreen();
+                              })
+                          );
+                        },
+                        name: "Delete Method"
+                    ),
                   ),
+                ],
+              ),
+              SizedBox(height: 40,),
+              Center(
+                child: Align(
+                  child: Text("APIs Call With StateManagement" ,style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),),
                 ),
-              ],
-            ),
-            SizedBox(height: 40,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return PostMethodScreenProvider();
-                            })
-                        );
-                      },
-                      name: "Post Method"
+              ),
+              SizedBox(height: 40,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return GetMethodScreenProvider();
+                              })
+                          );
+                        },
+                        name: "Get Method"
+                    ),
                   ),
-                ),
-                SizedBox(width: 15,),
-                Expanded(
-                  child: MyNextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context){
-                              return PostMethodCheckScreenProvider();
-                            })
-                        );
-                      },
-                      name: "Check"
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return GetMethodCheckScreenProvider();
+                              })
+                          );
+                        },
+                        name: "Check"
+                    ),
                   ),
-                ),
-              ],
-            ),
-
-          ],
+                ],
+              ),
+              SizedBox(height: 40,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return GetMethod2StateScreen();
+                              })
+                          );
+                        },
+                        name: "Get Method 2"
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return GetMethod2CheckScreen();
+                              })
+                          );
+                        },
+                        name: "Check"
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 40,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return PostMethodScreenProvider();
+                              })
+                          );
+                        },
+                        name: "Post Method"
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return PostMethodCheckScreenProvider();
+                              })
+                          );
+                        },
+                        name: "Check"
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 40,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(builder: (context){
+                          //       return PostMethodScreenProvider();
+                          //     })
+                          // );
+                        },
+                        name: "Put Method"
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(builder: (context){
+                          //       return PostMethodCheckScreenProvider();
+                          //     })
+                          // );
+                        },
+                        name: "Check"
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 40,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(builder: (context){
+                          //       return PostMethodScreenProvider();
+                          //     })
+                          // );
+                        },
+                        name: "Delete Method"
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: MyNextButton(
+                        onPressed: (){
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(builder: (context){
+                          //       return PostMethodCheckScreenProvider();
+                          //     })
+                          // );
+                        },
+                        name: "Check"
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
