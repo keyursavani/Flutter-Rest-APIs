@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_2_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/post_method_provider.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/provider/put_method_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_2_check_screen.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_2_screen.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/screen/post_method_check_screen.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/screen/post_method_screen.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/screen/put_method_screen.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/services/put_method_services.dart';
 
 import 'API_With_StateManagement/screen/get_method_check_screen.dart';
 import 'API_With_StateManagement/screen/get_method_screen.dart';
@@ -31,6 +34,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => GetMethodProvider()),
         ChangeNotifierProvider(create: (_) => GetMethod2Provider()),
         ChangeNotifierProvider(create: (context) => PostMethodProvider()),
+        ChangeNotifierProvider(create: (context) => PutMethodProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -292,12 +296,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: MyNextButton(
                         onPressed: (){
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(builder: (context){
-                          //       return PostMethodScreenProvider();
-                          //     })
-                          // );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return PutMethodScrrenProvider();
+                              })
+                          );
                         },
                         name: "Put Method"
                     ),
