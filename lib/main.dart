@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_2_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_provider.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/provider/post_method_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_2_check_screen.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/screen/get_method_2_screen.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/screen/post_method_check_screen.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/screen/post_method_screen.dart';
 
 import 'API_With_StateManagement/screen/get_method_check_screen.dart';
 import 'API_With_StateManagement/screen/get_method_screen.dart';
@@ -27,6 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => GetMethodProvider()),
         ChangeNotifierProvider(create: (_) => GetMethod2Provider()),
+        ChangeNotifierProvider(create: (context) => PostMethodProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -245,6 +249,41 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
+            SizedBox(height: 40,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: MyNextButton(
+                      onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context){
+                              return PostMethodScreenProvider();
+                            })
+                        );
+                      },
+                      name: "Post Method"
+                  ),
+                ),
+                SizedBox(width: 15,),
+                Expanded(
+                  child: MyNextButton(
+                      onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context){
+                              return PostMethodCheckScreenProvider();
+                            })
+                        );
+                      },
+                      name: "Check"
+                  ),
+                ),
+              ],
+            ),
+
           ],
         ),
       ),
