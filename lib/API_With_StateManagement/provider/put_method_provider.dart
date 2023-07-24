@@ -8,8 +8,8 @@ class PutMethodProvider with ChangeNotifier{
 
   bool loading = false;
   PutMethodService service = PutMethodService();
-   late PutMethodModel _data;
-  PutMethodModel get data=> _data;
+    PutMethodModel?_data;
+  PutMethodModel? get data=> _data;
 
   getData(context) async{
     loading = true;

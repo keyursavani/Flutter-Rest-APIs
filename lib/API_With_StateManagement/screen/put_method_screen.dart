@@ -40,7 +40,7 @@ class PutMethodScreenProviderState extends State<PutMethodScrrenProvider>{
              crossAxisAlignment: CrossAxisAlignment.center,
              children: [
                Center(
-                 child: Text(provider.data.title ?? "",
+                 child: Text(provider.data!.title ?? "",
                    textAlign: TextAlign.justify,
                    style: const TextStyle(
                        fontWeight: FontWeight.bold, fontSize: 18),

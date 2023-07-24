@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rest_api/API_With_StateManagement/provider/delete_method_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_2_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/get_method_provider.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/provider/post_method_provider.dart';
@@ -10,8 +11,11 @@ import 'package:flutter_rest_api/API_With_StateManagement/screen/post_method_scr
 import 'package:flutter_rest_api/API_With_StateManagement/screen/put_method_screen.dart';
 import 'package:flutter_rest_api/API_With_StateManagement/services/put_method_services.dart';
 
+import 'API_With_StateManagement/screen/delete_method_check_screen.dart';
+import 'API_With_StateManagement/screen/delete_method_screen.dart';
 import 'API_With_StateManagement/screen/get_method_check_screen.dart';
 import 'API_With_StateManagement/screen/get_method_screen.dart';
+import 'API_With_StateManagement/screen/put_method_check_screen.dart';
 import 'Simple_API_Calls/constant/my_button.dart';
 import 'Simple_API_Calls/screen/delete_method_screen.dart';
 import 'Simple_API_Calls/screen/get_method_screen.dart';
@@ -35,6 +39,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => GetMethod2Provider()),
         ChangeNotifierProvider(create: (context) => PostMethodProvider()),
         ChangeNotifierProvider(create: (context) => PutMethodProvider()),
+        ChangeNotifierProvider(create: (context) => DeleteMethodProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -310,12 +315,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: MyNextButton(
                         onPressed: (){
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(builder: (context){
-                          //       return PostMethodCheckScreenProvider();
-                          //     })
-                          // );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return PutMethodCheckScreen();
+                              })
+                          );
                         },
                         name: "Check"
                     ),
@@ -330,12 +335,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: MyNextButton(
                         onPressed: (){
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(builder: (context){
-                          //       return PostMethodScreenProvider();
-                          //     })
-                          // );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return DeleteMethodScreenProvider();
+                              })
+                          );
                         },
                         name: "Delete Method"
                     ),
@@ -344,12 +349,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: MyNextButton(
                         onPressed: (){
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(builder: (context){
-                          //       return PostMethodCheckScreenProvider();
-                          //     })
-                          // );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){
+                                return DeleteMethodCheckScreen();
+                              })
+                          );
                         },
                         name: "Check"
                     ),

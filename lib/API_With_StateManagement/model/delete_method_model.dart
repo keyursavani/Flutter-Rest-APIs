@@ -1,18 +1,15 @@
-class PutMethodModel{
-  PutMethodModel({
+class DeleteMethodModel {
+  DeleteMethodModel({
     int? id,
     String? title,
-})
-  {
+}){
     _id = id;
     _title = title;
-  }
-
-  PutMethodModel.fromJson(Map<String , dynamic> json){
+}
+DeleteMethodModel.fromJson(Map<String , dynamic> json){
     _id = json['id'];
     _title = json['title'];
-  }
-
+}
 
   Map<String , dynamic> toJson(){
     final map = <String ,dynamic>{};
