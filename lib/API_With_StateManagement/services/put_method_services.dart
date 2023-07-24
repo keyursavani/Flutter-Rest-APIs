@@ -7,7 +7,7 @@ import 'package:flutter_rest_api/API_With_StateManagement/model/put_method_model
 class PutMethodService{
   late PutMethodModel data;
 
-  Future<PutMethodModel> getData() async{
+  Future<PutMethodModel> getData(context) async{
     // const url = "https://jsonplaceholder.typicode.com/albums/1";
     // final uri = Uri.parse(url);
     // final response = await http.get(uri);

@@ -8,13 +8,12 @@ class PutMethodProvider with ChangeNotifier{
 
   bool loading = false;
   PutMethodService service = PutMethodService();
-  PutMethodModel? _data;
+   late PutMethodModel _data;
+  PutMethodModel get data=> _data;
 
-  PutMethodModel? get data=> _data;
-
-  getData() async{
+  getData(context) async{
     loading = true;
-    final response = await service.getData();
+    final response = await service.getData(context);
     _data = response;
     loading = false;
     notifyListeners();

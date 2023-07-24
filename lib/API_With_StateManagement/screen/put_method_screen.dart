@@ -12,26 +12,59 @@ class PutMethodScrrenProvider extends StatefulWidget{
 }
 
 class PutMethodScreenProviderState extends State<PutMethodScrrenProvider>{
+  TextEditingController _controller = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Provider.of<PutMethodProvider>(context, listen: false).getData(context);
+  }
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<PutMethodProvider>(context).getData();
+    final provider = Provider.of<PutMethodProvider>(context);
     // TODO: implement build
    return Scaffold(
      appBar: AppBar(
        title: Text("Put Method"),
      ),
-     body: Consumer<PutMethodProvider>(
-       builder: (context , value , child){
-         if (value.loading) {
-           return const Center(
-             child: CircularProgressIndicator(),
-           );
-         }
-         return Center(
-           child: Text(provider.data.title.toString()),
-         );
-       },
-     )
+     body: Padding(
+       padding: const EdgeInsets.symmetric(horizontal: 20),
+       child: provider.loading
+           ? Center(
+         child: Container(
+           child: const CircularProgressIndicator(),
+         ),
+       ) :
+           Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+             crossAxisAlignment: CrossAxisAlignment.center,
+             children: [
+               Center(
+                 child: Text(provider.data.title ?? "",
+                   textAlign: TextAlign.justify,
+                   style: const TextStyle(
+                       fontWeight: FontWeight.bold, fontSize: 18),
+                 ),
+               ),
+               TextField(
+                 controller: _controller,
+                 decoration: const InputDecoration(
+                   hintText: 'Enter Title',
+                 ),
+               ),
+               SizedBox(height: 20,),
+               ElevatedButton(
+                 onPressed: () {
+                   setState(() {
+                   provider.updateData(_controller.text);
+                   });
+                 },
+                 child: const Text('Update Data'),
+               ),
+             ],
+           ),
+     ),
+
    );
   }
 }
